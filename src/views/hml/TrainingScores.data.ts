@@ -1,7 +1,5 @@
 import {BasicColumn} from '/@/components/Table';
 import {FormSchema} from '/@/components/Table';
-import { rules} from '/@/utils/helper/validator';
-import { render } from '/@/utils/common/renderUtils';
 //列表数据
 export const columns: BasicColumn[] = [
    {
@@ -34,6 +32,36 @@ export const columns: BasicColumn[] = [
     align:"center",
     dataIndex: 'certificateNumber'
    },
+  {
+    title: '取得证书',
+    align:"center",
+    dataIndex: 'getCertificate_dictText'
+  },
+  {
+    title: '证书名称',
+    align:"center",
+    dataIndex: 'certificateName'
+  },
+  {
+    title: '证书编号',
+    align:"center",
+    dataIndex: 'certificateNumber'
+  },
+  {
+    title: '取得证书',
+    align:"center",
+    dataIndex: 'getCertificate_dictText'
+  },
+  {
+    title: '证书名称',
+    align:"center",
+    dataIndex: 'certificateName'
+  },
+  {
+    title: '证书编号',
+    align:"center",
+    dataIndex: 'certificateNumber'
+  },
 ];
 //查询数据
 export const searchFormSchema: FormSchema[] = [

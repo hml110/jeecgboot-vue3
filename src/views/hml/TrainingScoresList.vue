@@ -29,22 +29,35 @@
       <template #htmlSlot="{text}">
          <div v-html="text"></div>
       </template>
-    </BasicTable>
+
+   </BasicTable>
     <!-- 表单区域 -->
     <TrainingScoresModal @register="registerModal" @success="handleSuccess"></TrainingScoresModal>
   </div>
 </template>
 
 <script lang="ts" name="train-trainingScores" setup>
-  import {ref, computed, unref} from 'vue';
-  import {BasicTable, useTable, TableAction} from '/@/components/Table';
+import {ref, watch} from 'vue';
+  import {BasicTable, TableAction} from '/@/components/Table';
   import {useModal} from '/@/components/Modal';
   import { useListPage } from '/@/hooks/system/useListPage'
   import TrainingScoresModal from './components/TrainingScoresModal.vue'
   import {columns, searchFormSchema} from './TrainingScores.data';
   import {list, deleteOne, batchDelete, getImportUrl,getExportUrl} from './TrainingScores.api';
-  import { downloadFile } from '/@/utils/common/renderUtils';
+  import TrainingRecordList from "/@/views/hml/TrainingRecordList.vue";
+  import {object} from "vue-types";
   const checkedKeys = ref<Array<string | number>>([]);
+
+ const props = defineProps<{
+   expandRecord: {}
+ }>();
+
+console.log('子组件收到的：',props.expandRecord)
+
+
+
+
+
   //注册model
   const [registerModal, {openModal}] = useModal();
   //注册table数据
